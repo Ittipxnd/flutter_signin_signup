@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:onboarding_screen/component/my_button.dart';
 import 'package:onboarding_screen/component/my_textfield.dart';
+import 'package:onboarding_screen/screen/icon_button.dart';
+import 'package:onboarding_screen/screen/sign_up_screen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -60,7 +63,7 @@ class HomeScreen extends StatelessWidget {
               MyTextField(
                 controller: passwordController,
                 hintText: "Enter your password",
-                obscureText: true, //ปกปิดเป็นความลับ
+                obscureText: true,
                 labelText: "Password",
               ),
               const SizedBox(
@@ -113,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.normal,
-                            color: Color.fromARGB(255, 137, 36, 232)),
+                            color: Colors.black),
                       ),
                     ),
                     const Expanded(
@@ -125,31 +128,61 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MyIconButton(
+                    imagePath: 'assets/images/google.png',
+                    width: 50,
+                    height: 50,
+                  ),
+                  MyIconButton(
+                    imagePath: 'assets/images/apple.png',
+                    width: 50,
+                    height: 50,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Not a member?',
+                    'Not a member? ',
                     style: GoogleFonts.lato(
-                        textStyle: Theme.of(context).textTheme.displayMedium,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        fontStyle: FontStyle.italic,
-                        color: Color.fromARGB(255, 150, 27, 177)),
+                      textStyle: Theme.of(context).textTheme.displayMedium,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.black,
+                    ),
                   ),
                   const SizedBox(
                     height: 2,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpScreen(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'Register now',
                       style: GoogleFonts.lato(
-                          textStyle: Theme.of(context).textTheme.displayMedium,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          fontStyle: FontStyle.italic,
-                          color: Color.fromARGB(255, 150, 27, 177)),
+                        textStyle: Theme.of(context).textTheme.displayMedium,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
                 ],

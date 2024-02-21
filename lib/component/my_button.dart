@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Mybutton extends StatelessWidget {
   const Mybutton({
@@ -20,6 +21,17 @@ class Mybutton extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(
+          child: Text(
+            hintText,
+            style: GoogleFonts.poppins(
+              textStyle: Theme.of(context).textTheme.titleLarge,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
